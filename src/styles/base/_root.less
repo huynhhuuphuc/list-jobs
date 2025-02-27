@@ -1,0 +1,95 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+.ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+  left: unset;
+}
+.ant-pro-setting-drawer-handle {
+  z-index: 10;
+}
+.ant-page-header-footer {
+  margin-top: 8px;
+}
+.ant-page-header-heading-extra {
+  display: flex;
+}
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// Compatible with IE11
+@media screen and(-ms-high-contrast: active), (-ms-high-contrast: none) {
+  body .ant-design-pro > .ant-layout {
+    min-height: 100vh;
+  }
+}
+
+// hide ant-pro-global-header-collapsed-button in mobile and tablet
+.ant-pro-global-header-collapsed-button {
+  display: none !important;
+}
+.right___3L8KG {
+  flex-direction: row-reverse !important;
+}
+.ant-pro-global-header-layout-mix {
+  background-color: #fff !important;
+}
+.ant-pro-global-header-layout-mix .anticon {
+  color: #333 !important;
+}
+.dark___1NwCY .action___LP4_P:hover {
+  background-color: #e9e2e2 !important;
+}
+.right___3L8KG .account___6HXOq .avatar___2cOWV {
+  background-color: #1678ff !important;
+}
+.ant-avatar.ant-avatar-icon > .anticon {
+  color: #fff !important;
+}
+.ant-pro-form-login-container {
+  overflow: hidden !important;
+}
+.ant-card-head {
+  border-bottom: none !important;
+}
+.ant-descriptions-row > th:nth-child(odd) {
+  padding-bottom: 4px !important;
+}

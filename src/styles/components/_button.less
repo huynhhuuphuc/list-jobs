@@ -1,0 +1,47 @@
+.button-color(@color; @background; @border) {
+  color: @color;
+  border-color: @border; // a inside Button which only work in Chrome
+  & when not(@background = null) {
+    background: @background;
+  }
+  // http://stackoverflow.com/a/17253457
+  > a:only-child {
+    color: color;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: transparent;
+      content: '';
+    }
+  }
+}
+.button-variant-other(@color; @background; @border) {
+  .button-color(@color; @background; @border);
+
+  &:hover,
+  &:focus {
+    .button-color(
+        ~`colorPalette('@{color}', 5) `; @background;
+          ~`colorPalette('@{color}', 5) `
+      );
+  }
+
+  &:active {
+    .button-color(
+        ~`colorPalette('@{color}', 7) `; @background;
+          ~`colorPalette('@{color}', 7) `
+      );
+  }
+  // .button-disabled();
+}
+
+.button-error {
+  .button-variant-other(@error, @red-100, @error);
+}
+.button-success {
+  .button-variant-other(@success, @green-100, @success);
+}

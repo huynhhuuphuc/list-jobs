@@ -1,0 +1,97 @@
+/* stylelint-disable-next-line at-rule-no-unknown */
+// @plugin "../plugins/breakpoints.js";
+// font text start
+#font-base(@size: 16px, @lineHeight: 24px, @space: 0, @weight: 'normal') {
+  font-weight: @weight;
+  font-size: @size;
+  line-height: @lineHeight;
+  letter-spacing: @space;
+}
+#text-hide() {
+  color: transparent;
+  // font: ~'0/0 a';
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+#text-truncate() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+// font text end
+
+// hover mixin start
+#hover(@content) {
+  &:hover {
+    @content();
+  }
+}
+
+#hover-focus(@content) {
+  &:hover,
+  &:focus {
+    @content();
+  }
+}
+
+#plain-hover-focus(@content) {
+  &,
+  &:hover,
+  &:focus {
+    @content();
+  }
+}
+
+#hover-focus-active(@content) {
+  &:hover,
+  &:focus,
+  &:active {
+    @content();
+  }
+}
+// hover mixin end
+
+// background start
+#bg-variant(@parent, @color, @ignore-warning: false) {
+  @{parent} {
+    background-color: @color !important;
+  }
+  a@{parent},
+  button@{parent} {
+    #hover-focus({
+			background-color: darken(@color, 10%) !important;
+		});
+  }
+}
+
+#bg-gradient-variant(@parent, @color, @ignore-warning: false) {
+  @{parent} {
+    background: @color linear-gradient(180deg, mix(@body-bg, @color, 15%), @color) repeat-x !important;
+  }
+}
+// background end
+
+// grid start
+#media-breakpoint-up(@name, @content, @breakpoints: @grid-breakpoints) {
+  // @min: breakpoint-min(@name, @breakpoints);
+
+  // & when not (@min = ~'') {
+  //   @media (min-width: @min) {
+  //     @content();
+  //   }
+  // }
+  // & when (@min = ~'') {
+  //   @content();
+  // }
+  @content();
+}
+// grid end
+
+// shadows start
+#shadows(@box) {
+  background: @white;
+  border-radius: 12px;
+  box-shadow: @box;
+}
+// shadows end

@@ -1,0 +1,26 @@
+each(@fill-color, #(@value, @key) {
+  .fill-@{key} {
+    background-color: @value;
+  }
+});
+
+each(@background-color, #(@value, @key) {
+  .bg-@{key} {
+    background-color: @value;
+  }
+});
+
+each(@background-gradient, #(@value, @key) {
+  .bg-g-@{key} {
+    background-color: @value;
+  }
+});
+
+.bg-white {
+  // background-color: @white !important;
+  background-color: @text-colors[link-pressed];
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+}

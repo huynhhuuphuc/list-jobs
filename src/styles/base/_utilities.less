@@ -1,0 +1,94 @@
+//
+// Utilities for common `display` values
+//
+// display start
+each(map-keys(@grid-breakpoints), #(@breakpoint) {
+	#media-breakpoint-up(@breakpoint, {
+		@infix: breakpoint-infix(@breakpoint, @grid-breakpoints);
+
+		//@each $value in $displays {
+		//  .d#{$infix}-#{$value} { display: $value !important; }
+		//}
+		each(@displays, #(@value) {
+			.d-@{value} { display: @value !important; }
+		});
+	});
+});
+// display end
+
+//
+// Utilities for common `overflows` values
+//
+// overflows start
+each(@overflows, {
+	.overflow-@{value} { overflow: @value !important; }
+});
+// overflows end
+
+//
+// Utilities for common `position` values
+//
+// positon start
+each(@positions, #(@position) {
+	.position-@{position} { position: @position !important; }
+});
+
+.top-0 {
+  top: 0;
+}
+.lef-0 {
+  left: 0;
+}
+.bottom-0 {
+  bottom: 0;
+}
+.right-0 {
+  right: 0;
+}
+
+// Shorthand
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: @zindex-fixed;
+}
+
+.fixed-bottom {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: @zindex-fixed;
+}
+
+// .sticky-top {
+//   @supports (position: sticky) {
+//     position: sticky;
+//     top: 0;
+//     z-index: @zindex-sticky;
+//   }
+// }
+// positon end
+.d-none {
+  display: none !important;
+}
+.d-block {
+  display: block !important;
+}
+
+.text-link-detail {
+  span {
+    color: var(--ant-primary-color) !important;
+  }
+}
+
+.pointer {
+  cursor: pointer !important;
+}
+
+.fw-6 {
+  font-weight: 600 !important;
+}

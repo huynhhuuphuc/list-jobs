@@ -1,0 +1,98 @@
+each(@font-base, #(@v, @k, @i){
+  .text-@{k} {
+    @size: extract(@v, 1);
+    @lineHeight: extract(@v, 2);
+    @space: extract(@v, 3);
+    @weight:  extract(@v, 4);
+    #font-base(@size, @lineHeight, @space, @weight);
+  }
+})
+
+each(@text-colors, #(@value, @key){
+  .text-@{key} {
+    color: @value;
+  }
+});
+
+// Alignment
+
+.text-justify {
+  text-align: justify !important;
+}
+.text-wrap {
+  white-space: normal !important;
+}
+.text-nowrap {
+  white-space: nowrap !important;
+}
+.text-truncate {
+  #text-truncate();
+}
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-center {
+  text-align: center !important;
+}
+// each(map-keys(@grid-breakpoints), #(@breakpoint) {
+// 	#media-breakpoint-up(@breakpoint, {
+// 		@infix: breakpoint-infix(@breakpoint, @grid-breakpoints);
+
+// 		.text@{infix}-left   { text-align: left !important; }
+// 		.text@{infix}-right  { text-align: right !important; }
+// 		.text@{infix}-center { text-align: center !important; }
+// 	});
+// });
+
+// Weight and italics
+
+.font-weight-light {
+  font-weight: @font-weight-light !important;
+}
+.font-weight-lighter {
+  font-weight: @font-weight-lighter !important;
+}
+.font-weight-normal {
+  font-weight: @font-weight-normal !important;
+}
+.font-weight-semibold {
+  font-weight: @font-weight-semibold !important;
+}
+.font-weight-bold {
+  font-weight: @font-weight-bold !important;
+}
+.font-weight-bolder {
+  font-weight: @font-weight-bolder !important;
+}
+.font-italic {
+  font-style: italic !important;
+}
+
+// Transformation
+
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+// Misc
+
+.text-hide {
+  #text-hide();
+}
+
+.text-decoration-none {
+  text-decoration: none !important;
+}
+
+.text-break {
+  word-wrap: break-word !important; // Used instead of `overflow-wrap` for IE & Edge Legacy
+  word-break: break-word !important; // Deprecated, but avoids issues with flex containers
+}

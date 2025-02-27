@@ -1,0 +1,271 @@
+/* stylelint-disable length-zero-no-unit */
+/* stylelint-disable property-no-unknown */
+@import '~antd/es/style/variable.less';
+// Color system
+
+// less-docs-start gray-color-variables
+@white: #fff;
+@gray-100: #f8f9fa;
+@gray-200: #f2f2f2;
+@gray-300: #e6e6e6;
+@gray-400: #d9d9d9;
+@gray-500: #adb5bd;
+@gray-600: #b1b1b1;
+@gray-700: #8f8f8f;
+@gray-800: #838383;
+@gray-900: #121212;
+@black: #000;
+// less-docs-end gray-color-variables
+
+// less-docs-start orange-color-variables
+@orange: #eb6719;
+@orange-100: #fff3e5;
+@orange-200: #fff7ee;
+@orange-300: #ffecd7;
+@orange-400: #eeb594;
+@orange-500: #f16917;
+@orange-600: #da570a;
+@orange-700: #dd5034;
+// less-docs-end orange-color-variables
+
+// less-docs-start green-color-variables
+@green: #198754;
+@green-100: #cbf8de;
+@green-200: #11c55d;
+// less-docs-end green-color-variables
+
+// less-docs-start yellow-color-variables
+@yellow: #ffc107;
+@yellow-100: #fff4e2;
+@yellow-200: #ffa60d;
+// less-docs-end yellow-color-variables
+
+// less-docs-start red-color-variables
+@red: #dc3545;
+@red-100: #ffeeef;
+@red-200: #dc0a12;
+// less-docs-end red-color-variables
+
+// less-docs-start cyan-color-variables
+@cyan: #0dcaf0;
+@cyan-100: #7cdae8;
+@cyan-200: #56cfe0;
+@cyan-300: #00aec7;
+@cyan-400: #078ea2;
+// less-docs-end cyan-color-variables
+
+// less-docs-start color-variables
+@blue: #0d6efd;
+@indigo: #6610f2;
+@purple: #6f42c1;
+@pink: #d63384;
+@teal: #20c997;
+// less-docs-end color-variables
+
+// less-docs-start theme-color-variables
+@primary: @gray-900;
+@secondary: @gray-800;
+@accent: var(--ant-primary-color);
+@success: @green-200;
+@info: @yellow-100;
+@warning: @yellow-200;
+@error: @red-200;
+@light: @gray-100;
+@dark: @gray-900;
+// less-docs-end theme-color-variables
+
+// text, icon color
+// less-docs-start text, icon color variables
+@text-colors: {
+  primary: @primary;
+  secondary: @secondary;
+  inactive: @gray-700;
+  disabled: @gray-600;
+  link: @cyan-300;
+  link-pressed: @cyan-400;
+  link-disabled: @cyan-100;
+  on-color: @white;
+  on-color-pressed: rgba(255, 255, 255, 0.8);
+  on-color-in-active: rgba(255, 255, 255, 0.6);
+  on-color-disabled: rgba(255, 255, 255, 0.35);
+  accent1: @accent;
+  accent1-hover: @orange-500;
+  accent1-pressed: @orange-700;
+  accent1-disabled: @orange-400;
+  success: @success;
+  warning: @warning;
+  error: @error;
+};
+// less-docs-end text, icon color variables
+
+// background, fill components colors
+// less-docs-start text, fill color variables
+@fill-color: {
+  primary: @gray-400;
+  primary-base: @gray-200;
+  secondary: rgba(0, 0, 0, 0.45);
+  disabled: @gray-300;
+  separator: rgba(0, 0, 0, 0.08);
+  oncolor: @white;
+  oncolor-in-active: rgba(255, 255, 255, 0.5);
+  oncolor-disabled: rgba(255, 255, 255, 0.3);
+  accent1: @accent;
+  accent1-hover: @orange-500;
+  accent1-pressed: @orange-700;
+  accent1-disabled: @orange-400;
+  accent1-base: @orange-100;
+  accent1-base-hover: @orange-200;
+  accent1-base-pressed: @orange-300;
+  accent2: @cyan-200;
+  success: @success;
+  successbase: @green-100;
+  warning: @warning;
+  warning-base: @yellow-100;
+  error: @error;
+  error-base: @red-100;
+  info: @gray-900;
+  white: @white;
+};
+// less-docs-end fill color variables
+
+// less-docs-start background color variables
+@background-color: {
+  border: rgba(0, 0, 0, 0.05);
+  screen: @white;
+  overlay: rgba(0, 0, 0, 0.7);
+};
+// less-docs-end background color variables
+
+// less-docs-start background gradient color variables
+@background-gradient: {
+  gradient-accent1: linear-gradient(90deg, #ff671f 0%, #f04123 100%);
+  gradient-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+};
+// less-docs-end background gradient color variables
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+// less-docs-start typography variables
+@font-base: {
+  display: 56px, 72px, -1%, bold;
+  header-x-large: 40px, 48px, -1%, bold;
+  header-large: 32px, 40px, -1%, bold;
+  header-medium: 24px, 32px, -1%, bold;
+  header: 20px, 28px, -1%, bold;
+  header-small: 16px, 24px, -1%, bold;
+  body: 16px, 24px, 0, normal;
+  body-link: 14px, 24px, 0, normal;
+  body-bold: 16px, 24px, 0, bold;
+  call-out: 14px, 18px, 8%, normal;
+  label: 14px, 18px, 0, normal;
+  label-bold: 14px, 18px, 0, bold;
+  foot-note: 12px, 16px, 0, bold;
+  note: 12px, 14px, 2%, normal;
+  h4-medium: 20px, 28px, 0, 500;
+  h5-medium: 16px, 24px, 0, 500;
+};
+@font-weight-lighter: lighter;
+@font-weight-light: 300;
+@font-weight-normal: 400;
+@font-weight-semibold: 600;
+@font-weight-bold: 700;
+@font-weight-bolder: bolder;
+// less-docs-end typhography variables
+
+//  Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+// less-docs-start grid breakpoints variables
+@grid-breakpoints: {
+  xs: 0;
+  sm: 576px;
+  md: 768px;
+  lg: 992px;
+  xl: 1200px;
+};
+// less-docs-end grid breakpoints variables
+
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the @spacers map, should you need more variation.
+@spacer: 2px;
+@spacers: {
+  0: 0px;
+  2: @spacer;
+  4: (@spacer * 2);
+  5: 5px;
+  6: 6px;
+  8: (@spacer * 4);
+  10: (@spacer * 5);
+  12: (@spacer * 6);
+  16: (@spacer * 8);
+  24: (@spacer * 12);
+  32: (@spacer * 16);
+  64: (@spacer * 32);
+};
+
+// This variable affects the `.h-*` and `.w-*` classes.
+@sizes: {
+  5: 5%;
+  10: 10%;
+  25: 25%;
+  30: 30%;
+  50: 50%;
+  70: 70%;
+  75: 75%;
+  80: 80%;
+  100: 100%;
+  auto: auto;
+};
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+@border-width: 1px;
+@border-color: @gray-300;
+
+@radius-size: 2;
+@border-radius: {
+  0: 0;
+  2: @spacer;
+  4: (@spacer * 2);
+  6: (@spacer * 3);
+  8: (@spacer * 4);
+  12: (@spacer * 6);
+  16: (@spacer * 8);
+  24: (@spacer * 12);
+  32: (@spacer * 16);
+};
+
+@shadows: {
+  elevation1: 0px 2px 4px rgba(0, 0, 0, 0.08);
+  elevation2: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  elevation3: 0px 16px 56px rgba(0, 0, 0, 0.1);
+};
+
+// Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+
+@zindex-dropdown: 1000;
+@zindex-sticky: 1020;
+@zindex-fixed: 1030;
+@zindex-modal-backdrop: 1040;
+@zindex-modal: 1050;
+@zindex-popover: 1060;
+@zindex-tooltip: 1070;
+
+// Utilities
+
+@displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex;
+@overflows: auto, hidden;
+@positions: static, relative, absolute, fixed, sticky;
+
+// variable override antd start
+// @select-dropdown-height: 60px;
+//  variable override antd end
