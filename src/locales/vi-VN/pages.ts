@@ -115,5 +115,11 @@ export default {
   'page.cvList.viewCV': 'Danh sách CV',
   'page.cvList.createJob': 'Tạo',
   'page.cvList.createNewJob': 'Tạo mới công việc',
+  'page.cvList.link': 'Đường dẫn thông tin thêm',
+  'page.cvList.jobName': 'Tên công việc',
+  'page.cvList.expiredDate': 'Ngày hết hạn',
+  'page.cvList.quantity1': 'Số lượng tuyển dụng',
+  'page.cvList.reset': 'Reset',
+  'page.cvList.editJob': 'Chỉnh sửa công việc',
   // PAGE CV LIST END
 };

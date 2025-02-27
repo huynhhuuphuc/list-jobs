@@ -33,6 +33,16 @@ const CVList: React.FC = () => {
   const intl = useIntl();
   const actionRef = useRef<ActionType>();
   const [isAddJob, setIsAddJob] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const hide = () => {
+    setOpen(false);
+  };
+
+  const handleOpenChange = (newOpen: boolean) => {
+    setOpen(true);
+  };
+
   const columns = useMemo<ProColumns<CVListProps>[]>(() => {
     return [
       {
@@ -81,13 +91,10 @@ const CVList: React.FC = () => {
           <>
             <Popover
               placement="bottomLeft"
-              // title={'Lọc'}
-              content={<FormShowMore />}
-              // visible={showFilter}
-              // onVisibleChange={(visible: any) => {
-              //   setShowFilter(visible);
-              // }}
+              content={<FormShowMore entity={entity} hide={hide} />}
               trigger="click"
+              // open={open}
+              onOpenChange={handleOpenChange}
             >
               <Button type="text">...</Button>
             </Popover>

@@ -5,9 +5,14 @@ import {
   FileOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
-import { FormattedMessage } from 'umi';
+import { FormattedMessage, useIntl } from 'umi';
+import AddJobModal from '../AddJobModal';
+import { useState } from 'react';
 
-const FormShowMore = () => {
+const FormShowMore = ({ entity, hide }: { entity: any; hide?: any }) => {
+  const intl = useIntl();
+  const [isEditJob, setIsEditJob] = useState(false);
+
   const itemStyle = {
     cursor: 'pointer',
     transition: 'background-color 0.3s',
@@ -15,10 +20,21 @@ const FormShowMore = () => {
     borderRadius: 5,
   };
 
+  const handleEdit = () => {
+    console.log(entity);
+    setIsEditJob(true);
+  };
+
+  const handleCloseEditJob = () => {
+    setIsEditJob(false);
+    hide();
+  };
+
   return (
     <div>
       <div
         style={itemStyle}
+        onClick={handleEdit}
         onMouseEnter={(e) => {
           e.currentTarget.style.backgroundColor = '#f5f5f5';
         }}
@@ -89,6 +105,17 @@ const FormShowMore = () => {
           <FormattedMessage id="page.cvList.delete" defaultMessage="Xóa công việc" />
         </span>
       </div>
+
+      <AddJobModal
+        edit={true}
+        visible={isEditJob}
+        onClose={handleCloseEditJob}
+        title={intl.formatMessage({
+          id: 'page.cvList.editJob',
+          defaultMessage: 'Chỉnh sửa công việc',
+        })}
+        entity={entity}
+      />
     </div>
   );
 };

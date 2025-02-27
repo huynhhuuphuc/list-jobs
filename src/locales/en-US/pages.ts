@@ -114,5 +114,11 @@ export default {
   'page.cvList.viewCV': 'CV List',
   'page.cvList.createJob': 'Create',
   'page.cvList.createNewJob': 'Create New Job',
+  'page.cvList.link': 'Link',
+  'page.cvList.jobName': 'Job Name',
+  'page.cvList.expiredDate': 'Expired Date',
+  'page.cvList.quantity1': 'Quantity',
+  'page.cvList.reset': 'Reset',
+  'page.cvList.editJob': 'Edit Job',
   // PAGE CV LIST END
 };
