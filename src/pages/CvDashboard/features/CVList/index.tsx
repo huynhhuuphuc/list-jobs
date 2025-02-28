@@ -36,15 +36,15 @@ const CVList: React.FC = () => {
   const intl = useIntl();
   const actionRef = useRef<ActionType>();
   const [isAddJob, setIsAddJob] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [openPopoverId, setOpenPopoverId] = useState<number | null>(null);
   const dispatch = useDispatch();
 
-  const hide = () => {
-    setOpen(false);
+  const hidePopover = () => {
+    setOpenPopoverId(null);
   };
 
-  const handleOpenChange = (newOpen: boolean, entity: any) => {
-    setOpen(true);
+  const handleOpenChange = (visible: boolean, entity: any) => {
+    setOpenPopoverId(visible ? entity.uuid : null);
     dispatch({
       type: 'cvDashboard/setEntity',
       payload: entity,
@@ -99,10 +99,17 @@ const CVList: React.FC = () => {
           <>
             <Popover
               placement="bottomLeft"
-              content={<FormShowMore entity={entity} hide={hide} />}
+              content={
+                <FormShowMore
+                  entity={entity}
+                  hide={() => {
+                    hidePopover();
+                  }}
+                />
+              }
               trigger="click"
-              // open={open}
-              onOpenChange={() => handleOpenChange(open, entity)}
+              open={openPopoverId === entity.uuid}
+              onOpenChange={(visible) => handleOpenChange(visible, entity)}
             >
               <Button type="text">...</Button>
             </Popover>
@@ -110,7 +117,7 @@ const CVList: React.FC = () => {
         ),
       },
     ];
-  }, []);
+  }, [handleOpenChange, open]);
 
   const reloadTable = () => {
     actionRef.current?.reload(true);

@@ -26,6 +26,7 @@ const FormShowMore = ({ entity, hide }: { entity: any; hide?: any }) => {
 
   const handleEdit = () => {
     // console.log(entity);
+    hide();
     setIsEditJob(true);
   };
 
@@ -42,14 +43,17 @@ const FormShowMore = ({ entity, hide }: { entity: any; hide?: any }) => {
 
   const handleViewCV = () => {
     history.push(`/cv-dashboard/detail/${entity.uuid}`);
+    hide();
   };
 
   const handleUploadCV = () => {
     setIsAddCV(true);
+    hide();
   };
 
   const handleCloseAddCV = () => {
     setIsAddCV(false);
+    hide();
   };
 
   return (
