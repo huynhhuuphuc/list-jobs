@@ -4,7 +4,10 @@ type JobListTable = {
   end_date: string;
   quantity: string;
   created_by: string;
+  link: string;
   status: string;
+  contents: any[];
+  experiences: any[];
 };
 type JobListRequest = {
   ui_chanel: string;

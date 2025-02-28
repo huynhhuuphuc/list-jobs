@@ -1,13 +1,23 @@
 ﻿export default [
   {
-    path: '/dashboard',
-    icon: 'profile',
     name: 'cv-dashboard',
+    path: '/cv-dashboard',
+    icon: 'profile',
     component: './CvDashboard/features/CVList',
   },
   {
+    name: 'detail',
+    path: '/cv-dashboard/detail/:id',
+    component: './CvDashboard/features/CVList/components/ViewCV',
+  },
+  {
+    name: 'candidateName',
+    path: '/candidateName/detail/:id',
+    component: './CvDashboard/features/CVList/components/NameCandidate',
+  },
+  {
     path: '/',
-    redirect: '/dashboard',
+    redirect: '/cv-dashboard',
   },
   {
     path: '/404',

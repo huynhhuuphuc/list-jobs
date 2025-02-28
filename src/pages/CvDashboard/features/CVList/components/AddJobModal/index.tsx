@@ -1,5 +1,6 @@
 import ProForm, { ProFormDatePicker, ProFormText } from '@ant-design/pro-form';
 import { Button, Col, message, Modal, Row } from 'antd';
+import moment from 'moment';
 import { useIntl } from 'umi';
 
 interface IAddJobModalProps {
@@ -40,6 +41,10 @@ const AddJobModal: React.FC<IAddJobModalProps> = ({
     console.log(values);
   };
 
+  const formatDate = (date: any) => {
+    return moment(date, 'DD/MM/YYYY').format('YYYY-MM-DD');
+  };
+
   return (
     <Modal
       centered
@@ -71,13 +76,12 @@ const AddJobModal: React.FC<IAddJobModalProps> = ({
           form={form}
           className="mt-5"
           onFinish={handleFormSubmit}
-          initialValues={
-            {
-              // email: accInfo.email,
-              // phone: accInfo.phone,
-              // contract: accInfo.cont_addr,
-            }
-          }
+          initialValues={{
+            jobName: entity ? entity.name : '',
+            expiredDate: entity ? formatDate(entity.end_date) : null,
+            quantity: entity ? entity.quantity : '',
+            link: entity ? entity.link : '',
+          }}
           submitter={{
             render: (props) => [
               // eslint-disable-next-line react/jsx-key
@@ -86,11 +90,12 @@ const AddJobModal: React.FC<IAddJobModalProps> = ({
                   key="reset"
                   style={BUTTON_STYLE}
                   onClick={() => {
-                    // form.setFieldsValue({
-                    //   email: accInfo.email,
-                    //   phone: accInfo.phone,
-                    //   contract: accInfo.cont_addr,
-                    // });
+                    form.setFieldsValue({
+                      jobName: entity ? entity.name : '',
+                      expiredDate: entity ? formatDate(entity.end_date) : null,
+                      quantity: entity ? entity.quantity : '',
+                      link: entity ? entity.link : '',
+                    });
                     message.info('Đã trở về trạng thái ban đầu');
                   }}
                 >
@@ -149,12 +154,9 @@ const AddJobModal: React.FC<IAddJobModalProps> = ({
                   defaultMessage: 'Số lượng tuyển dụng',
                 })}
                 placeholder="Nhập số lượng tuyển dụng"
-                rules={[
-                  { required: true, message: 'Vui lòng nhập số lượng tuyển dụng' },
-                  { min: 27, message: 'Vui lòng nhập số lượng tuyển dụng ít nhất 27 kí tự' },
-                ]}
+                rules={[{ required: true, message: 'Vui lòng nhập số lượng tuyển dụng' }]}
                 fieldProps={{
-                  maxLength: 150,
+                  maxLength: 20,
                   showCount: true,
                 }}
               />

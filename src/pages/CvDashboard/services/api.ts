@@ -38,4 +38,11 @@ const dataTableJobList = async (
   return data;
 };
 
-export { getJobList, dataTableJobList };
+const getDetailCv = async (id: any): Promise<DataResponseAPI<any>> => {
+  const data = await request(`/api/mock/view-cv/${id}`, {
+    method: 'GET',
+  });
+  return data || null;
+};
+
+export { getJobList, dataTableJobList, getDetailCv };

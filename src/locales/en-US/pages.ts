@@ -120,5 +120,38 @@ export default {
   'page.cvList.quantity1': 'Quantity',
   'page.cvList.reset': 'Reset',
   'page.cvList.editJob': 'Edit Job',
+  'page.cvList.jobInfo': 'Job Information',
+  'page.cvList.info': 'Additional Information Link',
+  'page.cvList.code': 'Job Code',
+  'page.cvList.createdByDate': 'Created Date',
+  'page.detail.table.createdAt': 'Created At',
+  'page.detail.table.interviewTime': 'Interview Time',
+  'page.detail.table.phone': 'Phone',
+  'page.detail.table.email': 'Email',
+  'page.detail.table.experience': 'Experience',
+  'page.detail.table.full_name': 'Full Name',
+  'page.detail.table.status': 'Status',
+  'page.detail.table.action': 'Action',
+  'page.detail.table.id': 'ID',
+  'page.detail.table.view': 'View',
+  'page.detail.table.delete': 'Delete',
+  'page.detail.table.add': 'Add new CV',
+  'page.detail.table.uploadFile': 'Upload File',
   // PAGE CV LIST END
+
+  // PAGE CV DETAIL START
+  'page.cvDetail.table.id': 'ID',
+  'page.cvDetail.table.name': 'Name',
+  'page.cvDetail.table.status': 'Status',
+  'page.cvDetail.table.action': 'Action',
+  'page.cvDetail.table.candidateNameInfo': 'Candidate Information',
+  'page.cvList.candidateNameInfo': 'Candidate Information',
+  'page.cvList.interviewEvaluation': 'Interview Evaluation',
+  'page.cvList.candidateSummary': 'Candidate Summary',
+  'page.cvDetail.table.uploadVideo': 'Upload Interview Video',
+  'page.homeLoanList.save': 'Save',
+  // PAGE CV DETAIL END
+
+  'menu.candidateName': 'Candidate Information',
+  'page.cvList.addCV': 'Upload CV',
 };

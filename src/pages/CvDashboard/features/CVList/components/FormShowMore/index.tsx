@@ -5,13 +5,17 @@ import {
   FileOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
-import { FormattedMessage, useIntl } from 'umi';
+import { FormattedMessage, useDispatch, useHistory, useIntl } from 'umi';
 import AddJobModal from '../AddJobModal';
 import { useState } from 'react';
+import ModalDetailAddCv from './components/AddCVModal';
 
 const FormShowMore = ({ entity, hide }: { entity: any; hide?: any }) => {
   const intl = useIntl();
+  const history = useHistory();
   const [isEditJob, setIsEditJob] = useState(false);
+  const [isAddCV, setIsAddCV] = useState(false);
+  const dispatch = useDispatch();
 
   const itemStyle = {
     cursor: 'pointer',
@@ -21,13 +25,31 @@ const FormShowMore = ({ entity, hide }: { entity: any; hide?: any }) => {
   };
 
   const handleEdit = () => {
-    console.log(entity);
+    // console.log(entity);
     setIsEditJob(true);
   };
 
   const handleCloseEditJob = () => {
     setIsEditJob(false);
+    dispatch({
+      type: 'cvDashboard/getJobList',
+      payload: {
+        uuid: entity.uuid,
+      },
+    });
     hide();
+  };
+
+  const handleViewCV = () => {
+    history.push(`/cv-dashboard/detail/${entity.uuid}`);
+  };
+
+  const handleUploadCV = () => {
+    setIsAddCV(true);
+  };
+
+  const handleCloseAddCV = () => {
+    setIsAddCV(false);
   };
 
   return (
@@ -63,6 +85,7 @@ const FormShowMore = ({ entity, hide }: { entity: any; hide?: any }) => {
       </div>
       <div
         style={itemStyle}
+        onClick={handleViewCV}
         onMouseEnter={(e) => {
           e.currentTarget.style.backgroundColor = '#f5f5f5';
         }}
@@ -78,6 +101,7 @@ const FormShowMore = ({ entity, hide }: { entity: any; hide?: any }) => {
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <div
           style={itemStyle}
+          onClick={handleUploadCV}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = '#f5f5f5';
           }}
@@ -115,6 +139,14 @@ const FormShowMore = ({ entity, hide }: { entity: any; hide?: any }) => {
           defaultMessage: 'Chỉnh sửa công việc',
         })}
         entity={entity}
+      />
+      <ModalDetailAddCv
+        visible={isAddCV}
+        onClose={handleCloseAddCV}
+        title={intl.formatMessage({
+          id: 'page.cvList.addCV',
+          defaultMessage: 'Tải CV lên',
+        })}
       />
     </div>
   );

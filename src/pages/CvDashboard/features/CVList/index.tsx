@@ -1,5 +1,5 @@
 import { showTotal } from '@/commons/utils/i18n';
-import { FormattedMessage, Link, useIntl } from 'umi';
+import { FormattedMessage, Link, useDispatch, useIntl } from 'umi';
 import { Button, Card, Col, Popover, Row, Select, Space, Form, Tag } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { ProTable, type ActionType, type ProColumns } from '@ant-design/pro-table';
@@ -17,7 +17,10 @@ type CVListProps = {
   status?: string;
   end_date?: string;
   quantity?: number;
+  link?: string;
   created_by?: string;
+  contents?: any[];
+  experiences?: any[];
 };
 
 type HomeTableCVListRequest = {
@@ -34,13 +37,18 @@ const CVList: React.FC = () => {
   const actionRef = useRef<ActionType>();
   const [isAddJob, setIsAddJob] = useState(false);
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const hide = () => {
     setOpen(false);
   };
 
-  const handleOpenChange = (newOpen: boolean) => {
+  const handleOpenChange = (newOpen: boolean, entity: any) => {
     setOpen(true);
+    dispatch({
+      type: 'cvDashboard/setEntity',
+      payload: entity,
+    });
   };
 
   const columns = useMemo<ProColumns<CVListProps>[]>(() => {
@@ -94,7 +102,7 @@ const CVList: React.FC = () => {
               content={<FormShowMore entity={entity} hide={hide} />}
               trigger="click"
               // open={open}
-              onOpenChange={handleOpenChange}
+              onOpenChange={() => handleOpenChange(open, entity)}
             >
               <Button type="text">...</Button>
             </Popover>
